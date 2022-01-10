@@ -9,23 +9,29 @@
 /* Begin PBXBuildFile section */
 		C32841CA278C9E25002C0EAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32841C9278C9E25002C0EAE /* AppDelegate.swift */; };
 		C32841CC278C9E25002C0EAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32841CB278C9E25002C0EAE /* SceneDelegate.swift */; };
-		C32841CE278C9E25002C0EAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32841CD278C9E25002C0EAE /* ViewController.swift */; };
+		C32841CE278C9E25002C0EAE /* BucketListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32841CD278C9E25002C0EAE /* BucketListViewController.swift */; };
 		C32841D1278C9E25002C0EAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32841CF278C9E25002C0EAE /* Main.storyboard */; };
 		C32841D4278C9E25002C0EAE /* BucketcURD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C32841D2278C9E25002C0EAE /* BucketcURD.xcdatamodeld */; };
 		C32841D6278C9E2A002C0EAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C32841D5278C9E2A002C0EAE /* Assets.xcassets */; };
 		C32841D9278C9E2A002C0EAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32841D7278C9E2A002C0EAE /* LaunchScreen.storyboard */; };
+		C32841E1278C9EF8002C0EAE /* CancelButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32841E0278C9EF8002C0EAE /* CancelButtonDelegate.swift */; };
+		C32841E3278C9F24002C0EAE /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32841E2278C9F24002C0EAE /* AddItemTableViewController.swift */; };
+		C32841E5278C9F45002C0EAE /* AddItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32841E4278C9F45002C0EAE /* AddItemDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C32841C6278C9E25002C0EAE /* BucketcURD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketcURD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C32841C9278C9E25002C0EAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C32841CB278C9E25002C0EAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C32841CD278C9E25002C0EAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C32841CD278C9E25002C0EAE /* BucketListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListViewController.swift; sourceTree = "<group>"; };
 		C32841D0278C9E25002C0EAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C32841D3278C9E25002C0EAE /* BucketcURD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BucketcURD.xcdatamodel; sourceTree = "<group>"; };
 		C32841D5278C9E2A002C0EAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C32841D8278C9E2A002C0EAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C32841DA278C9E2A002C0EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C32841E0278C9EF8002C0EAE /* CancelButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButtonDelegate.swift; sourceTree = "<group>"; };
+		C32841E2278C9F24002C0EAE /* AddItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
+		C32841E4278C9F45002C0EAE /* AddItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +66,15 @@
 			children = (
 				C32841C9278C9E25002C0EAE /* AppDelegate.swift */,
 				C32841CB278C9E25002C0EAE /* SceneDelegate.swift */,
-				C32841CD278C9E25002C0EAE /* ViewController.swift */,
+				C32841CD278C9E25002C0EAE /* BucketListViewController.swift */,
 				C32841CF278C9E25002C0EAE /* Main.storyboard */,
 				C32841D5278C9E2A002C0EAE /* Assets.xcassets */,
 				C32841D7278C9E2A002C0EAE /* LaunchScreen.storyboard */,
 				C32841DA278C9E2A002C0EAE /* Info.plist */,
 				C32841D2278C9E25002C0EAE /* BucketcURD.xcdatamodeld */,
+				C32841E0278C9EF8002C0EAE /* CancelButtonDelegate.swift */,
+				C32841E2278C9F24002C0EAE /* AddItemTableViewController.swift */,
+				C32841E4278C9F45002C0EAE /* AddItemDelegate.swift */,
 			);
 			path = BucketcURD;
 			sourceTree = "<group>";
@@ -141,7 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C32841CE278C9E25002C0EAE /* ViewController.swift in Sources */,
+				C32841E1278C9EF8002C0EAE /* CancelButtonDelegate.swift in Sources */,
+				C32841E5278C9F45002C0EAE /* AddItemDelegate.swift in Sources */,
+				C32841CE278C9E25002C0EAE /* BucketListViewController.swift in Sources */,
+				C32841E3278C9F24002C0EAE /* AddItemTableViewController.swift in Sources */,
 				C32841CA278C9E25002C0EAE /* AppDelegate.swift in Sources */,
 				C32841CC278C9E25002C0EAE /* SceneDelegate.swift in Sources */,
 				C32841D4278C9E25002C0EAE /* BucketcURD.xcdatamodeld in Sources */,
