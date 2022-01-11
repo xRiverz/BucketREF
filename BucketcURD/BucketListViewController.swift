@@ -5,30 +5,28 @@
 //  Created by administrator on 10/01/2022.
 //
 
-
 import UIKit
+
 class BucketListViewController: UITableViewController, AddItemDelegate {
-    func cancelButtonPressed(by controller: AddItemTableViewController) {
-        dismiss(animated: true, completion: nil)
-    }
     
-    func itemSaved(by controller: AddItemTableViewController, with text:String, at indexPath:IndexPath?) {
-        if let ip = indexPath {
-            items[ip.row] = text
-        }else {
-            items.append(text)
-        }
-        
-        dismiss(animated: true, completion: nil)
-        tableView.reloadData()
-    }
-    
-    
-    var items = ["Sleep Forever","Swim For 1 Hour", "Study For 2 Minutes"]
+    var items : [Task] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        apiB.getAllTasks(completionHandler: {
+            data, response, error in
+            
+            do{
+                self.items = try JSONDecoder().decode([Task].self, from: data!)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }catch{
+                print(error)
+            }
+        })
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,7 +36,7 @@ class BucketListViewController: UITableViewController, AddItemDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListItemCell", for: indexPath)
-        cell.textLabel?.text = items[indexPath.row]
+        cell.textLabel?.text = items[indexPath.row].objective
         return cell
     }
     
@@ -54,7 +52,7 @@ class BucketListViewController: UITableViewController, AddItemDelegate {
             addItemTableViewController.delegate = self
             let indexPath = sender as! IndexPath
             let item = items[indexPath.row]
-            addItemTableViewController.item = item
+            addItemTableViewController.item = item.objective
             addItemTableViewController.indexPath = indexPath
         }
     }
@@ -64,11 +62,67 @@ class BucketListViewController: UITableViewController, AddItemDelegate {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        items.remove(at: indexPath.row)
-        tableView.reloadData()
+
+        apiB.deleteTask(index: items[indexPath.row].id, completionHandler: {
+            data, response, error in
+            
+            do{
+                let result = try JSONDecoder().decode([Task].self, from: data!)
+                
+                DispatchQueue.main.async {
+                    self.items = result
+                    self.tableView.reloadData()
+                }
+            }catch{
+                print(error)
+            }
+            
+        })
     }
-
-
+    
+    func cancelButtonPressed(by controller: AddItemTableViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func itemSaved(by controller: AddItemTableViewController, with text:String, at indexPath:IndexPath?) {
+        
+        if let index = indexPath {
+            updateTask(index.row,text)
+        }else{
+            addTask(text)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func addTask(_ text:String){
+        apiB.addTask(objective: text, completionHandler: {
+            data, response, error in
+            do{
+                let result = try JSONDecoder().decode([Task].self, from: data!)
+                
+                DispatchQueue.main.async {
+                    self.items = result
+                    self.tableView.reloadData()
+                }
+            }catch{
+                print(error)
+            }
+        })
+    }
+    
+    func updateTask(_ index:Int,_ text:String){
+        apiB.updateTask(index: index, objective: text, completionHandler: {
+            data, response, error in
+            do{
+                let result = try JSONDecoder().decode([Task].self, from: data!)
+                
+                DispatchQueue.main.async {
+                    self.items = result
+                    self.tableView.reloadData()
+                }
+            }catch{
+                print(error)
+            }
+        })
+    }
 }
-
-
